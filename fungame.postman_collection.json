@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "2601931c-cd74-4d28-8a49-8338e6bed570",
+		"name": "fungame",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetHealthCheck",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostQuestion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\":\"Yohaan\",\n    \"last_name\":\"Singla\",\n    \"transaction_id\":\"ZPT0192827343\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/pdf",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"pdf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GeneratePDF",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Question\":\"How are you doing\",\n    \"Answer\":\"I am doing fine\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/question",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"question"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

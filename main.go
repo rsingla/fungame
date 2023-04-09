@@ -24,6 +24,8 @@ func main() {
 
 	app.Post("/question", addQuestion)
 
+	app.Post("/pdf", addPDF)
+
 	log.Fatal(app.Listen(":3000"))
 }
 
@@ -49,4 +51,28 @@ func addQuestion(c *fiber.Ctx) error {
 	return c.JSON(fiber.Map{
 		"body": &question,
 	})
+}
+
+func addPDF(c *fiber.Ctx) error {
+
+	log.Println("PDF Performed")
+
+	body := c.Body()
+
+	var customer Customer
+	err := json.Unmarshal(body, &customer)
+
+	fileName := customer.FirstName + "_" + customer.LastName + "_" + customer.TransactionId
+
+	generatePDF("pdfs", fileName)
+
+	if err != nil {
+		log.Println(err)
+	}
+
+	return c.JSON(fiber.Map{
+		"body":    &customer,
+		"message": "PDF Generated with the filename: " + fileName + ".pdf",
+	})
+
 }
